@@ -236,10 +236,10 @@ var UIController = (function () {
         addListItem: function (obj, type) {
             var html, newHtml, element;
 
-            if (type ==='inc') {
+            if (type === 'inc') {
                 element = DOMstrings.incomeContainer;
 
-                html = '<div class="item clearfix" id="inc-%id%">  <div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+                html = '<div class="item clearfix" id="inc-%id%">  <div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><ion-icon name="ios-close-circle-outline"></ion-icon></i></button></div></div></div>';
             } else if (type === 'exp') {
                 element = DOMstrings.expensesContainer;
 
@@ -247,7 +247,7 @@ var UIController = (function () {
             }
 
             // Replace the placeholder text with some actual data
-            newHtml= html.replace('%id%', obj.id);
+            newHtml = html.replace('%id%', obj.id);
             newHtml = newHtml.replace('%description%', obj.description);
             newHtml = newHtml.replace('%value%', formatNumber(obj.value, type));
 
@@ -267,12 +267,12 @@ var UIController = (function () {
         clearFields: function () {
             var fields, fieldsArr;
 
-            fields= document.querySelectorAll(DOMstrings.inputDescription + ', ' + DOMstrings.inputValue);
+            fields = document.querySelectorAll(DOMstrings.inputDescription + ', ' + DOMstrings.inputValue);
 
             fieldsArr = Array.prototype.slice.call(fields);
 
             fieldsArr.forEach(function (current, index, array) {
-                current.value = "";0
+                current.value = ""; 0
             });
 
             fieldsArr[0].focus();
@@ -283,7 +283,7 @@ var UIController = (function () {
             var type;
             obj.budget > 0 ? type = 'inc' : type = 'exp';
 
-            document.querySelector(DOMstrings.budgetLabel).textContent =formatNumber(obj.budget, type);
+            document.querySelector(DOMstrings.budgetLabel).textContent = formatNumber(obj.budget, type);
             document.querySelector(DOMstrings.incomeLabel).textContent = formatNumber(obj.totalInc, 'inc');
             document.querySelector(DOMstrings.expensesLabel).textContent = formatNumber(obj.totalExp, 'exp');
 
@@ -316,7 +316,7 @@ var UIController = (function () {
             var now, months, month, year;
 
             now = new Date();
-            
+
 
             months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
             month = now.getMonth();
